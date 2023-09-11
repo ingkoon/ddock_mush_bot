@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import org.springframework.stereotype.Component
+import java.util.*
 
 @Slf4j
 @Component
@@ -26,7 +27,7 @@ class DiscordListener : ListenerAdapter() {
         if(messageList[0] == "오오"){
             val messageArray: Array<String> = messageList.toTypedArray()
             val strings : Array<String> = messageArray.copyOfRange(1, messageArray.size)
-            log.info { strings.size }
+            log.info { strings.contentToString() }
             if(strings.isEmpty()) {
                 val returnMessage : String = "돌아가고 싶어..."
                 channel.sendMessage(returnMessage).queue()

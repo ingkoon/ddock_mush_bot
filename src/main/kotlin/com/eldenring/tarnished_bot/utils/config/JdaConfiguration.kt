@@ -17,7 +17,7 @@ class JdaConfiguration(
     final val discordBotToken: DiscordBotToken,
     final val discordListener: DiscordListener,
 ) {
-    final val message : String = "메시지 기다리는 중"
+    final val message : String = "고리의 포즈"
     val log = KotlinLogging.logger{}
 
     val jda : JDA = JDABuilder.createDefault(discordBotToken.discordBotToken)
@@ -25,8 +25,4 @@ class JdaConfiguration(
         .enableIntents(GatewayIntent.MESSAGE_CONTENT)
         .addEventListeners(discordListener)
         .build()
-
-    fun init(){
-        log.info { "create jda" }
-    }
 }
