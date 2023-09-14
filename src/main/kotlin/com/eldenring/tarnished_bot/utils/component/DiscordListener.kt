@@ -1,4 +1,4 @@
-package com.eldenring.tarnished_bot.utils.config
+package com.eldenring.tarnished_bot.utils.component
 
 import lombok.extern.slf4j.Slf4j
 import mu.KotlinLogging
@@ -7,13 +7,14 @@ import net.dv8tion.jda.api.entities.User
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import java.util.*
 
 @Slf4j
 @Component
 class DiscordListener : ListenerAdapter() {
-
+    @Autowired
+    private lateinit var bossComponent: BossComponent
     private val log = KotlinLogging.logger {}
 
     @Override
@@ -33,10 +34,16 @@ class DiscordListener : ListenerAdapter() {
                 channel.sendMessage(returnMessage).queue()
                 return
             }
-            for (s in strings) {
-                val returnMessage : String = sendMessage(event, s)
-                channel.sendMessage(returnMessage).queue()
+            val result = when (strings[0]) {
+                "보스" -> bossComponent.getBossInfo(strings[1]).toString()
+                else -> "이 너머 오타있다"
             }
+            log.info { result }
+            channel.sendMessage(result).queue()
+//            for (s in strings) {
+//                val returnMessage : String = sendMessage(event, s)
+//                channel.sendMessage(returnMessage).queue()
+//            }
         }
     }
 
