@@ -16,7 +16,7 @@ class JdaConfiguration(
     final val discordBotToken: DiscordBotToken,
     final val discordListener: DiscordListener,
 ) {
-    final val message : String = "고리의 포즈 취"
+    final val message : String = "버섯 동네로 탈바꿈"
     val log = KotlinLogging.logger{}
 
     val jda : JDA = JDABuilder.createDefault(discordBotToken.discordBotToken)

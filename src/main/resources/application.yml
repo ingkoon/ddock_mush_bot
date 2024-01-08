@@ -17,22 +17,22 @@ spring:
 spring:
   application:
     name: tarnished_bot
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://mysql:3306/eeaao?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    #    url: jdbc:mysql://localhost:3306/eeaao?createDatabaseIfNotExist=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    username: root
-#    password: root
-#
-#  jpa:
-#    show-sql: false
-#    properties:
-#      hibernate:
-#        format_sql: true
-#        dialect: org.hibernate.dialect.MySQLDialect
-#    database: mysql
-#    hibernate:
-#      ddl-auto: create
+    url: jdbc:mysql://localhost:3306/rand_mark?createDatabaseIfNotExist=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: root
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    database: mysql
+    hibernate:
+      ddl-auto: update
 
   config:
     activate:
