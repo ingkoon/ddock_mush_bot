@@ -32,7 +32,7 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
-/src/main/resources/application-discord.yml
+!**/src/main/resources/application-discord.yml
 
 ### VS Code ###
 .vscode/
